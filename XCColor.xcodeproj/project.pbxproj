@@ -14,6 +14,7 @@
 		25AEFC662405315500869B72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25AEFC652405315500869B72 /* Assets.xcassets */; };
 		25AEFC692405315500869B72 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25AEFC672405315500869B72 /* LaunchScreen.storyboard */; };
 		25AEFC712405316300869B72 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25AEFC702405316300869B72 /* Colors.xcassets */; };
+		25AEFC75240534EF00869B72 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AEFC74240534EF00869B72 /* UIColorExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		25AEFC682405315500869B72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		25AEFC6A2405315500869B72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		25AEFC702405316300869B72 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		25AEFC74240534EF00869B72 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				25AEFC5C2405315400869B72 /* AppDelegate.swift */,
 				25AEFC5E2405315400869B72 /* SceneDelegate.swift */,
 				25AEFC602405315400869B72 /* ViewController.swift */,
+				25AEFC74240534EF00869B72 /* UIColorExtension.swift */,
 				25AEFC622405315400869B72 /* Main.storyboard */,
 				25AEFC652405315500869B72 /* Assets.xcassets */,
 				25AEFC702405316300869B72 /* Colors.xcassets */,
@@ -145,6 +148,7 @@
 				25AEFC612405315400869B72 /* ViewController.swift in Sources */,
 				25AEFC5D2405315400869B72 /* AppDelegate.swift in Sources */,
 				25AEFC5F2405315400869B72 /* SceneDelegate.swift in Sources */,
+				25AEFC75240534EF00869B72 /* UIColorExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

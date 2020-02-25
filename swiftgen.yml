@@ -1,0 +1,10 @@
+xcassets:
+  inputs:
+    - XCColor/Colors.xcassets
+  outputs:
+    - templatePath: asset-to-color-extension.stencil
+      output: XCColor/UIColorExtension.swift
+      params:
+        enumName: UIColor
+        publicAccess: true
+        allValues: true

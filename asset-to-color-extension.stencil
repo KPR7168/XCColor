@@ -1,0 +1,77 @@
+// swiftlint:disable all
+// Generated using SwiftGen — https://github.com/SwiftGen/SwiftGen
+
+{% if catalogs %}
+{% set enumName %}{{param.enumName|default:"Asset"}}{% endset %}
+{% set forceNamespaces %}{{param.forceProvidesNamespaces|default:"false"}}{% endset %}
+{% set accessModifier %}{% if param.publicAccess %}public{% else %}internal{% endif %}{% endset %}
+
+// MARK: - Color catalogs
+import UIKit
+{% macro enumBlock assets %}
+  {% call casesBlock assets %}
+  {% if param.allValues %}
+  static let allColors: [{{enumName}}] = [
+    {% filter indent:2 %}{% call allValuesBlock assets "color" "" %}{% endfilter %}
+  ]
+
+  static let allNames: [String] = [
+    {% filter indent:2 %}{% call allValuesBlock assets "color" """ %}{% endfilter %}
+  ]
+  {% endif %}
+{% endmacro %}
+{% macro casesBlock assets %}
+  {% for asset in assets %}
+  {% if asset.type == "color" %}
+  static let {{asset.name|swiftIdentifier:"pretty"|lowerFirstWord|escapeReservedKeywords}} = UIColor.color(named: "{{asset.value}}")
+  {% elif asset.type == "data" %}
+  {{accessModifier}} static let {{asset.name|swiftIdentifier:"pretty"|lowerFirstWord|escapeReservedKeywords}} = {{dataType}}(name: "{{asset.value}}")
+  {% elif asset.type == "image" %}
+  {% elif asset.items and ( forceNamespaces == "true" or asset.isNamespaced == "true" ) %}
+  {{accessModifier}} enum {{asset.name|swiftIdentifier:"pretty"|escapeReservedKeywords}} {
+
+    {% filter indent:2 %}{% call casesBlock asset.items %}{% endfilter %}
+  }
+  {% elif asset.items %}
+  {% call casesBlock asset.items %}
+  {% endif %}
+  {% endfor %}
+{% endmacro %}
+{% macro allValuesBlock assets filter prefix %}
+  {% for asset in assets %}
+  {% if asset.type == filter %}
+  {{prefix}}{{asset.name|swiftIdentifier:"pretty"|lowerFirstWord|escapeReservedKeywords}}{{prefix}},
+  {% elif asset.items and ( forceNamespaces == "true" or asset.isNamespaced == "true" ) %}
+  {% set prefix2 %}{{prefix}}{{asset.name|swiftIdentifier:"pretty"|escapeReservedKeywords}}.{% endset %}
+  {% call allValuesBlock asset.items filter prefix2 %}
+  {% elif asset.items %}
+  {% call allValuesBlock asset.items filter prefix %}
+  {% endif %}
+  {% endfor %}
+{% endmacro %}
+
+{{accessModifier}} extension {{enumName}} {
+  
+
+  {% if catalogs.count > 1 %}
+  {% for catalog in catalogs %}
+  
+  {{accessModifier}} enum {{catalog.name|swiftIdentifier:"pretty"|escapeReservedKeywords}} {
+    {% filter indent:2 %}{% call enumBlock catalog.assets %}{% endfilter %}
+  }
+  {% endfor %}
+  {% else %}
+  
+  {% call enumBlock catalogs.first.assets %}
+  {% endif %}
+
+  private static func color(named: String) -> UIColor {
+      return UIColor(named: named)!
+  }
+}
+
+private final class BundleToken {}
+{% else %}
+// No assets found
+{% endif %}
+
