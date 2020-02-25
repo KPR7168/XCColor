@@ -5,7 +5,7 @@
 // MARK: - Color catalogs
 import UIKit
 
-public extension UIColor {
+@objc public extension UIColor {
 
   static let contentBlue = UIColor.color(named: "contentBlue")
   static let contentGreen = UIColor.color(named: "contentGreen")

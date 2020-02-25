@@ -50,7 +50,7 @@ import UIKit
   {% endfor %}
 {% endmacro %}
 
-{{accessModifier}} extension {{enumName}} {
+@objc {{accessModifier}} extension {{enumName}} {
   
 
   {% if catalogs.count > 1 %}
