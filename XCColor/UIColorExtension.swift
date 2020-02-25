@@ -30,5 +30,3 @@ public extension UIColor {
   }
 }
 
-private final class BundleToken {}
-

@@ -69,8 +69,6 @@ import UIKit
       return UIColor(named: named)!
   }
 }
-
-private final class BundleToken {}
 {% else %}
 // No assets found
 {% endif %}
