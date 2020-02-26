@@ -16,13 +16,14 @@ class ViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return UIColor.allColors.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        cell.textLabel?.text = "1234"
+        cell.textLabel?.text = UIColor.allNames[indexPath.row]
+        cell.contentView.backgroundColor = UIColor.allColors[indexPath.row]
         return cell
     }
 
